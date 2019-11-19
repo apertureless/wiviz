@@ -1,0 +1,26 @@
+##
+# Usage
+#
+#  sudo bettercap -iface en0 -no-colors -caplet client-probe-analyzer.cap
+
+events.stream off
+
+events.ignore sys.log
+events.ignore session.started
+events.ignore session.closing
+events.ignore update.available
+events.ignore endpoint.new
+events.ignore endpoint.lost
+events.ignore wifi.ap.new
+events.ignore wifi.ap.lost
+events.ignore wifi.client.handshake
+events.ignore wifi.client.new
+events.ignore wifi.client.lost
+events.ignore mod.started
+events.ignore mod.stopped
+events.ignore net.sniff.*
+
+set events.stream.output ./client-probes.log
+
+events.stream on
+wifi.recon on
